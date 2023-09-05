@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Nic</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <h1>99乘法表</h1>
+    <button id="generateButton">生成乘法表</button>
+    <button id="hideButton" style="display:none;">隱藏乘法表</button>
+    <div id="multiplicationTable"></div>
+
+    <script>
+        document.getElementById("generateButton").addEventListener("click", function () {
+            generateMultiplicationTable();
+            document.getElementById("generateButton").style.display = "none";
+            document.getElementById("hideButton").style.display = "inline";
+        });
+
+        document.getElementById("hideButton").addEventListener("click", function () {
+            document.getElementById("multiplicationTable").style.display = "none";
+            document.getElementById("generateButton").style.display = "inline";
+            document.getElementById("hideButton").style.display = "none";
+        });
+
+        function generateMultiplicationTable() {
+            var table = "<table>";
+            for (var i = 1; i <= 9; i++) {
+                table += "<tr>";
+                for (var j = 1; j <= 9; j++) {
+                    table += "<td>" + i + " x " + j + " = " + (i * j) + "</td>";
+                }
+                table += "</tr>";
+            }
+            table += "</table>";
+
+            document.getElementById("multiplicationTable").innerHTML = table;
+            document.getElementById("multiplicationTable").style.display = "block";
+        }
+    </script>
+</body>
+</html>
